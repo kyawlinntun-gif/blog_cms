@@ -13,7 +13,7 @@
                         <a class="nav-link active" aria-current="page" href="#">View All Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ url('/category/create') }}">Create New Categories</a>
+                        <a class="nav-link active" href="{{ url('/categories/create') }}">Create New Categories</a>
                     </li>
                 </ul>
             </div>
