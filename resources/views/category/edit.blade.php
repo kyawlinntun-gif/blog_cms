@@ -3,16 +3,16 @@
 @section('content')
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Create New Category</h1>
+    <h1 class="h3 mb-4 text-gray-800">Edit New Category</h1>
 
-    @if (Session::has('success_message'))
+    {{-- @if (Session::has('success_message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ Session::get('success_message') }}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    @endif
+    @endif --}}
 
     @if (count($errors) > 0)
 
@@ -36,11 +36,11 @@
     </nav>
 
     <div class="panel-body">
-        {{ Form::open(['url' => '/categories', 'method' => 'POST']) }}
+        {{ Form::model($category, ['url' => '/categories/'. $category->id, 'method' => 'put']) }}
         {{ Form::label('name', 'Category Name') }}
         {{ Form::text('name', null, ['class' => 'form-control']) }}
         <br>
-        {{ Form::submit('Create Category') }}
+        {{ Form::submit('Update Category') }}
         {{ Form::close() }}
     </div>
 

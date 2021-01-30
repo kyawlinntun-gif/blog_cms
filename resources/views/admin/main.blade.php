@@ -414,6 +414,8 @@
     <!-- Custom scripts for all pages-->
     {{ Html::script('js/sb-admin-2.min.js') }}
 
+    @yield('jquery')
+
 </body>
 
 </html>
