@@ -12,7 +12,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.main');
+        $posts = Post::all();
+        return view('post.main', [
+            'posts' => $posts
+        ]);
     }
 
     public function create()
@@ -69,5 +72,22 @@ class PostController extends Controller
         Post::create(['category_id' => $request->category_id, 'title' => $request->title, 'author' => $request->author, 'image' => $filenameToStore, 'short_desc' => $request->short_desc, 'description' => $request->description]);
 
         return redirect('/posts/create');
+    }
+
+    public function edit($id)
+    {
+        $categories = [];
+
+        foreach(Category::all() as $category)
+        {
+            $categories[$category->id] = $category->name;
+        }
+
+        $post = Post::findOrFail($id);
+
+        return view('post.edit', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 }

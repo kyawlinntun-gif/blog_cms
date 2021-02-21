@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
-});
-
+Route::get('/', [StoreController::class, 'index']);
 Route::resource('categories', CategoryController::class);
 Route::resource('posts', PostController::class);
+Route::get('/view', function () {
+    return view('store.view');
+});

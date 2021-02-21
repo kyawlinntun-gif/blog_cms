@@ -28,26 +28,32 @@
 
         <div class="panel panel-body">
 
-            {{-- <table class="table table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Category</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category Id</th>
+                        <th>Description</th>
                         <th></th>
-                        <th></th>
+                        {{-- <th></th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $category)    
+                    @foreach ($posts as $post)    
                         <tr>
-                            <td>{{ $category->name }}</td>
-                            <td><a href="{{ url('/categories/' . $category->id . '/edit') }}">Edit</a></td>
-                            <td><button class="btn btn-danger" onclick="categoryDelete({{ $category }})">Delete</button></td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->author }}</td>
+                            <td>{{ $post->category_id }}</td>
+                            <td>{{ $post->short_desc }}</td>
+                            <td><a href="{{ url('/posts/' . $post->id . '/edit') }}">Edit</a></td>
+                            {{-- <td><button class="btn btn-danger" onclick="categoryDelete({{ $category }})">Delete</button></td>
                             {{ Form::open(['url' => '/categories/' . $category->id, 'method' => 'delete', 'class' => 'category-' . $category->id]) }}
-                            {{ Form::close() }}
+                            {{ Form::close() }} --}}
                         </tr>
                     @endforeach
                 </tbody>
-            </table> --}}
+            </table>
 
         </div>
 
